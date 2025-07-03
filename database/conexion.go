@@ -13,6 +13,7 @@ var DB *sql.DB
 func Conectar() {
 	var err error
 	dsn := os.Getenv("DB_URL")
+	log.Println("dsn:", dsn)
 	DB, err = sql.Open("mysql", dsn)
 	if err != nil {
 		log.Fatal("Error al iniciar base de datos: ", err)
