@@ -6,8 +6,9 @@ import (
 )
 
 func RutasAlbumes(router *gin.Engine) {
-	albumes := router.Group("albumes")
+	albumesGrupo := router.Group("albumes")
 	{
-		albumes.GET("/", controllers.GetAlbums)
+		albumesGrupo.GET("", controllers.GetAlbums)
+		albumesGrupo.GET("/:id", controllers.GetCanciones)
 	}
 }
