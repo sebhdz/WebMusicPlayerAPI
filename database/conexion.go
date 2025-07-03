@@ -5,13 +5,14 @@ import (
 	"fmt"
 	_ "github.com/go-sql-driver/mysql"
 	"log"
+	"os"
 )
 
 var DB *sql.DB
 
 func Conectar() {
 	var err error
-	dsn := "root:@tcp(127.0.0.1:3306)/player?parseTime=true"
+	dsn := os.Getenv("MYSQL_URL")
 	DB, err = sql.Open("mysql", dsn)
 	if err != nil {
 		log.Fatal("Error al iniciar base de datos: ", err)
