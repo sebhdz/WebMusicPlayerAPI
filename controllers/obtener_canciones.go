@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"github.com/gin-gonic/gin"
+	"log"
 	"net/http"
 	"pruebaAPI/services"
 )
@@ -13,5 +14,11 @@ func GetCanciones(router *gin.Context) {
 		router.IndentedJSON(http.StatusInternalServerError, gin.H{"error": "Error al obtener canciones"})
 		return
 	}
-	router.IndentedJSON(http.StatusOK, canciones)
+	cancionesAlbum, er := services.ObtenerCancionesAlbum(idAlbum, canciones)
+	if er != nil {
+		log.Println(er)
+		router.IndentedJSON(http.StatusInternalServerError, gin.H{"error": "Error al obtener canciones"})
+		return
+	}
+	router.IndentedJSON(http.StatusOK, cancionesAlbum)
 }

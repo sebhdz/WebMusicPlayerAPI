@@ -1,13 +1,12 @@
 package services
 
 import (
-	"fmt"
 	"pruebaAPI/database"
 	"pruebaAPI/models"
 )
 
-func ObtenerCanciones(id_album string) ([]models.Cancion, error) {
-	rows, err := database.DB.Query("SELECT canciones.id, albumes.nombre_album, artistas.nombre_artista, nombre_cancion, url FROM canciones JOIN albumes ON id_album = albumes.id JOIN artistas ON albumes.id_artista = artistas.id WHERE id_album = ? ORDER BY canciones.posicion", id_album)
+func ObtenerCanciones(idAlbum string) ([]models.Cancion, error) {
+	rows, err := database.DB.Query("SELECT canciones.id, posicion, nombre_cancion, albumes.url_imagen, artistas.nombre_artista ,url FROM canciones JOIN albumes on canciones.id_album = albumes.id JOIN artistas on albumes.id_artista = artistas.id WHERE id_album = ?", idAlbum)
 	if err != nil {
 		return nil, err
 	}
@@ -15,12 +14,11 @@ func ObtenerCanciones(id_album string) ([]models.Cancion, error) {
 	var canciones []models.Cancion
 	for rows.Next() {
 		var cancion models.Cancion
-		err := rows.Scan(&cancion.ID, &cancion.NombreAlbum, &cancion.NombreArtista, &cancion.NombreCanion, &cancion.Url)
+		err := rows.Scan(&cancion.ID, &cancion.Posicion, &cancion.NombreCanion, &cancion.ImagenUrl, &cancion.Artista, &cancion.Url)
 		if err != nil {
 			return nil, err
 		}
 		canciones = append(canciones, cancion)
 	}
-	fmt.Println(canciones)
 	return canciones, nil
 }
