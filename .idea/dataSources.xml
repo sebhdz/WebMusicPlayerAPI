@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="player@localhost" uuid="fb2d3367-93f3-49f9-907f-f00750760d3b">
+    <data-source source="LOCAL" name="MySQL" uuid="fb2d3367-93f3-49f9-907f-f00750760d3b">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
+      <configured-by-url>true</configured-by-url>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/player</jdbc-url>
+      <jdbc-url>jdbc:mysql://root:cardgSMxbEOhAKHlrHeeYQYNXAaRfAbZ@maglev.proxy.rlwy.net:50266/railway</jdbc-url>
       <jdbc-additional-properties>
         <property name="com.intellij.clouds.kubernetes.db.host.port" />
         <property name="com.intellij.clouds.kubernetes.db.enabled" value="false" />
@@ -14,12 +15,11 @@
       </jdbc-additional-properties>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="PlayerRailway" uuid="ec7f0d45-24e8-4280-937c-6655ce36276e">
+    <data-source source="LOCAL" name="railway@localhost" uuid="fa891187-92b8-41ee-b5b4-3bde59131d08">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
-      <configured-by-url>true</configured-by-url>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://root:JRcoPEThPgxLkFLhChRWFqcZPaQTrzcc@ballast.proxy.rlwy.net:18306/railway</jdbc-url>
+      <jdbc-url>jdbc:mysql://localhost:3306/railway</jdbc-url>
       <jdbc-additional-properties>
         <property name="com.intellij.clouds.kubernetes.db.host.port" />
         <property name="com.intellij.clouds.kubernetes.db.enabled" value="false" />
